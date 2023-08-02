@@ -1,0 +1,65 @@
+Take an integer input l and r such that l,r<=array.length. Given an array. Make a prefix sum array from this. The print the sum of the elements inside the array starting from the l-index till the r-index(l and r both inclusive).
+
+Input Format
+
+First line contains integer N as size of array.
+
+Second line contains N integer values as array elements.
+
+Third line contains L and R integer values
+
+Constraints
+
+1 <= N <= 10^4
+
+-10^4 <= A[i] <= 10^4
+
+0 <= L < R <= N
+Output Format
+
+Return the prefix arrays in range.
+
+Sample Input 0
+
+5
+1
+2
+8
+4
+10
+1
+3
+Sample Output 0
+
+3
+11
+15
+Explanation 0
+
+Prefix Array of the given array is 1 2 8 4 10 1 3 11 15 25 Idx 1,3 Prefix Sum array from 1 to 3 is 3 11 15
+=============================================================================================================================================================
+
+
+Solution
+
+ public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int N = scn.nextInt();
+         int A[]= new int [N];
+       for(int i = 0 ;i < N;i++){
+           A[i]=scn.nextInt();
+       }
+        int l = scn.nextInt();
+        int r = scn.nextInt();
+        
+        int prefx []=new int [N];
+        prefx[0]=A[0];
+        for(int i = 1 ;i < N;i++){
+            prefx[i]=prefx[i-1]+A[i];
+        }
+         while(l<=r){
+             System.out.println(prefx[l]);
+                 l++;
+         }
+    }
+}
