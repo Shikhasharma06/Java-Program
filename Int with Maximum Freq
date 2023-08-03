@@ -1,0 +1,44 @@
+Mark is a data analyst who is trying to analyze the customer data of a retail company. One of the tasks he needs to perform is to find the most common digit in the customer IDs. The IDs are represented as an array of single-digit integers from 0-9. Mark needs to find the digit that occurs the most in the array in order to identify patterns in customer behavior.
+
+Help Mark and find the digit form the array that occurs maximum number of times.
+
+Input Format
+
+First line contains integer N representing size of array.
+
+Second line contains N integer representing elements of array.
+
+Constraints
+
+1 <= N <= 10^4
+
+0 <= A[i] <= 9
+
+==============================================================================================================================================
+Solution 
+Scanner scn = new Scanner (System.in);
+        int n = scn.nextInt();
+        int A[]= new int [n];
+        for(int i =0 ;i < n;i++){
+            A[i]=scn.nextInt();
+        }
+       int freq[]= new int[10];
+        for(int i = 0 ;i < n;i++){
+            int ele = A[i];
+            freq[ele]++;
+        }
+            int maxele= Integer.MIN_VALUE;
+            int maxeleval= -1;
+         
+        
+        for(int i = 0 ;i < 10;i++){
+            if(freq[i]  > maxele){
+                maxele =freq[i];
+                maxeleval=i;
+        }
+        }
+            
+            System.out.print(maxeleval);
+    
+    }
+}
