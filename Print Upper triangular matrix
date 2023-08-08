@@ -1,0 +1,60 @@
+In the world of finance, every second counts. That's why a young financial analyst named Maria is given a complex matrix of size m * n to analyze, she knows that time is of the essence. The matrix contains vital data that could make or break her company's fortunes, and Maria has to act fast to make sense of it all.
+
+As she delves into the matrix, Maria realizes that the upper triangle holds the key to unlocking the data's secrets.
+
+help Maria and create program that print the upper triangular matrix.
+
+Input Format
+
+First line contains, m and n depicting the size of matrix.
+
+Second line contains m * n Integer values, depicting all the elements of matrix.
+
+Constraints
+
+1<=m and n<=1000
+ 
+-1000<=mat[i][j]<=1000
+Output Format
+
+Return the upper triangular matrix
+
+Sample Input 0
+
+3
+3
+3 7 1
+6 2 4
+7 1 0
+Sample Output 0
+
+3 7 1 
+0 2 4 
+0 0 0 
+================================================================================================================================================
+ Scanner scanner = new Scanner(System.in);
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
+
+        int[][] matrix = new int[m][n];
+
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+       
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j < i) {
+                    System.out.print("0 ");
+                } else {
+                    System.out.print(matrix[i][j] + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
