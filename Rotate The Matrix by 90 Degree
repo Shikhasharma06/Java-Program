@@ -1,0 +1,85 @@
+Take a square matrix of size n*n as input, and rotate the matrix by 90 degree.
+
+
+
+Input Format
+
+First line contains Integer N depicting the size of matrix.
+
+Second line contains N * N Integer values, depicting all the elements of matrix.
+
+Constraints
+
+1<=N<=1000
+
+1<=mat[i][j]<=1000
+Output Format
+
+Return A Square matrix of size n*n.
+
+Sample Input 0
+
+3 
+1 2 3
+4 5 6
+7 8 9
+Sample Output 0
+
+7 4 1 
+8 5 2 
+9 6 3 
+==================================================================================================================================================================
+
+
+
+    public static void Trasnpose(int [][]A){
+        for(int i = 0 ; i< A.length;i++){
+            for(int j = 0 ; j <A.length;j++){
+                if(i<= j){
+                 int tmp = A[i][j];
+                    A[i][j]=A[j][i];
+                    A[j][i]=tmp;
+                    
+                }
+            }
+        }
+        
+    }
+     public static void Reverse1d(int []d){
+         int i = 0;
+         int j = d.length-1;
+         while(i< j){
+             int tmp = d[i];
+             d[i]=d[j];
+             d[j]=tmp;
+         
+            i++; 
+            j--;
+     }  
+     }
+    
+    public static void Printmatrix(int A[][]){
+        for(int []d:A){
+        for( int ele :d){
+            System.out.print(ele+" ");
+        }
+     System.out.println();
+    }
+    }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int A[][]= new int [n][n];
+         for(int i = 0 ; i< n;i++){
+             for(int j = 0 ;j < n;j++){
+             A[i][j]=scn.nextInt();
+         }
+         }
+    
+           Trasnpose(A);
+           for(int []d:A){
+             Reverse1d(d);}
+          Printmatrix(A);
+            
+    }
+}
